@@ -9,7 +9,7 @@ function get_item(item) {
         <h4 class="cart-item-title">${item.title}</h4>
         
         <div class="cart-item-quantity">Кількість: 
-        <input data-item="${item.title}" class="form-control quantity-input" type="number" name="quantity" min="1" value="${item.quantity}">
+        <input data-item="${item.title}" class="form-control quantity-input" type="number" name="quantity" min="0" value="${item.quantity}">
         </div>
         <div class="cart-item-price" data-price="${item.price}">${item.price * item.quantity} грн</div>
         </div>`
@@ -32,6 +32,9 @@ cart_list.addEventListener('change', (event) => {
         const itemTitle = target.getAttribute('data-item')
         const newQuantity = +target.value
         if (newQuantity > 0) {
+            cart.updateQuantity(itemTitle, newQuantity)
+            showCartList() // Оновити список товарів у кошику
+        }else{
             cart.updateQuantity(itemTitle, newQuantity)
             showCartList() // Оновити список товарів у кошику
         }

@@ -65,3 +65,12 @@
         flex-wrap: wrap;
     }
 }
+
+.form-control, .form-select{
+    box-shadow: -13px 6px 22px -5px #d00000;
+    border-radius: 20px;
+}
+
+.cart-total{
+    color: #f48c06;
+}
